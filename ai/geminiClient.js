@@ -9,7 +9,7 @@ export async function callGemini({
 }) {
   const client = new GoogleGenAI({ apiKey });
   let delay = 500;
-
+  
   for (let attempt = 1; attempt <= retries; attempt++) {
     try {
       const result = await client.models.generateContent({

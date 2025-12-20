@@ -22,13 +22,13 @@ ${fileContents}
 `;
 };
 
-export const finalPrompBuilder = (summaries) => {
+export const finalPromptBuilder = (summaries) => {
   return `You are an AI Project Summariser.
 
 Your task is to synthesize the file level summaries and provide a high level summary for the whole project.
 
 Input format(**always in this format**):
-`filename : <filePath> \n <file summary>`
+'filename : <filePath> \n <file summary>'
 
 Rules:
 - DO NOT assume that they are raw files.

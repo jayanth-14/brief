@@ -1,16 +1,18 @@
 import { listFiles } from './utils/listFiles.js';
 import { requireEnv } from './utils/env.js';
-import { summariseFiles } from './summarisers/summariseFiles.js';
+import { summarise } from './summarisers/summarise.js';
+import { finalSummarise } from './summarisers/summariseFullProject.js';
 
 const summariseProject = async (path) => {
-  const files = listFiles(path);
-  
-  const apikey = requireEnv('GEMINI_API_KEY');
+  const apiKey = requireEnv('GEMINI_API_KEY');
   const model = 'gemini-2.5-flash';
 
-  const filesSummary = await summariseFiles(files, apikey, model);
+  const filesSummary = await summarise(path || './', apiKey, model); 
 
-  const projectSummary = 
+  const projectSummary = await finalSummarise(filesSummary, apiKey, model);
+
+  const summary = projectSummary + '\n\n' + filesSummary;
+  console.log(summary);
 }
 
 await summariseProject(Deno.args[0]);

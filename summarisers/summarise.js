@@ -1,9 +1,9 @@
 import { summariseFolder } from './summariseFolder.js';
 import { summariseFile } from './summariseFile.js';
 
-export const summarise = (path) => {
+export const summarise = async (path, apiKey, model) => {
 
   const summariser = path.endsWith('/') ? summariseFolder : summariseFile;
 
-  return summariser(path);
+  return await summariser(path, apiKey, model);
 }

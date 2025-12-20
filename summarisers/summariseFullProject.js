@@ -1,7 +1,7 @@
 import { finalPromptBuilder } from '../ai/promptBuilder.js';
 import { callGemini } from '../ai/geminiClient.js';
 
-export finalSummarise = async (summaries, apiKey, model) => {
+export const finalSummarise = async (summaries, apiKey, model) => {
 
   const finalPrompt = finalPromptBuilder(summaries);
 

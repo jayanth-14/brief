@@ -21,3 +21,44 @@ File contents:
 ${fileContents}
 `;
 };
+
+export const finalPrompBuilder = (summaries) => {
+  return `You are an AI Project Summariser.
+
+Your task is to synthesize the file level summaries and provide a high level summary for the whole project.
+
+Input format(**always in this format**):
+`filename : <filePath> \n <file summary>`
+
+Rules:
+- DO NOT assume that they are raw files.
+- Synthesize summaries across files by merging duplicate responsibilities into a single responsibility.
+- Infer relationships from the summaries only.
+- Use *declarative language*.
+- Use short labeled paragraphs.
+- If information is not provided, omit the section instead of guessing.
+- Input order has no semantic order.
+- treat each summary individually.
+- **The summary must be self-contained.**
+  
+Constraints:
+- No guessing beyond the summaries.
+- Do not hedge.
+- Do not use any uncertainty language.
+- Do not provide any suggestions or improvements.
+- Do not reference files which are not listed.
+- Do not add any new components.
+- No repetition or duplications.
+  
+  
+Output should follow this section order. Omit sections with no information. Include labels and headings:
+- Kind of project.
+- What problem of it is solving.
+- Major components
+- Key control points such as entry, orchestration.
+- Constraints - like env, tooling, api usage, etc
+
+Summaries :
+${summaries}
+`;
+}

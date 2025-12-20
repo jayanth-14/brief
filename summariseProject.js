@@ -10,7 +10,7 @@ const summariseProject = async (path) => {
 
   const filesSummary = await summariseFiles(files, apikey, model);
 
-  console.log(filesSummary);
+  const projectSummary = 
 }
 
 await summariseProject(Deno.args[0]);

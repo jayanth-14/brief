@@ -1,6 +1,4 @@
-- [x] create listFiles function
-- []  create summariseFile function
-- create summariseAllFiles function
-- create summariseProject function which is the main function
-- create formatSummarise function
-- create writeSummarise function
+# Features to add:
+- writing output to specified file: `-o`
+- different modes.
+- implement `.briefignore`

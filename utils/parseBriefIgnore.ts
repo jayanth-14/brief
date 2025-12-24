@@ -12,9 +12,9 @@ export const parseBriefIgnore = (filePath) => {
     let fileName = file;
     if (fileName.startsWith('-r')) {
       fileName = fileName.split(' ')[1];
-      ignoreList.concat(parseBriefIgnore(fileName));
+      ignoreList.push(...parseBriefIgnore(fileName));
     }
-    ignoreList.push(fileName);
+    ignoreList.push(fileName.trim());
   }
   
   return ignoreList;
